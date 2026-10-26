@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi App - Menú Lateral y Herramientas</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- COLUMNA IZQUIERDA: Menú lateral oscuro -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+        </div>
+        <div>
+          <h2 class="app-title">Panel de Control</h2>
+          <span class="app-subtitle">Herramientas Web</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <p class="nav-label">MENÚ PRINCIPAL</p>
+        <button id="btn-colores" class="nav-button active" aria-label="Generador de Colores">
+          <span class="btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+              <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+              <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+              <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C21.438 6.014 17.18 2 12 2z"></path>
+            </svg>
+          </span>
+          <span class="btn-text">Generador de Colores</span>
+        </button>
+
+        <button id="btn-reloj" class="nav-button" aria-label="Reloj">
+          <span class="btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </span>
+          <span class="btn-text">Reloj</span>
+        </button>
+
+        <button id="btn-info" class="nav-button" aria-label="Información del Estudiante">
+          <span class="btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span class="btn-text">Estudiante</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>Aplicación Activa</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- COLUMNA DERECHA: Área de contenido principal amplia y clara -->
+    <main class="main-content" id="main-content-area">
+      <!-- Sección 1: Generador de Colores (Centrado) -->
+      <section id="section-colores" class="content-section active">
+        <div class="color-center-container">
+          <div class="color-center-card" id="color-center-card">
+            <span class="center-badge" id="color-badge">Color Aleatorio</span>
+            <div class="center-hex-code" id="center-hex-text" title="Haz clic para copiar">#6366F1</div>
+            <p class="center-hint">Haz clic en el código o usa los botones para copiar</p>
+            
+            <div class="center-actions">
+              <button id="btn-copy-hex" class="btn-center-copy" title="Copiar código HEX">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copiar HEX</span>
+              </button>
+              
+              <button id="btn-randomize-center" class="btn-center-generate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                </svg>
+                <span>Generar Otro Color</span>
+              </button>
+            </div>
+
+            <div class="color-values-row">
+              <div class="value-chip" id="chip-rgb">
+                <span class="value-label">RGB:</span>
+                <span class="value-text" id="val-rgb">rgb(99, 102, 241)</span>
+              </div>
+              <div class="value-chip" id="chip-hsl">
+                <span class="value-label">HSL:</span>
+                <span class="value-text" id="val-hsl">hsl(239, 84%, 67%)</span>
+              </div>
+            </div>
+
+            <div class="center-palette-wrapper">
+              <span class="palette-title">Variaciones de tonalidad:</span>
+              <div class="palette-swatches-mini" id="palette-swatches"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 2: Reloj Digital (Centrado) -->
+      <section id="section-reloj" class="content-section">
+        <div class="clock-center-container">
+          <div class="clock-center-card" id="clock-center-card">
+            <span class="clock-badge">Reloj Digital</span>
+            <div class="clock-digits-display" id="clock-time">00:00:00</div>
+            <div class="clock-date-display" id="clock-date">Cargando fecha...</div>
+            <div class="clock-live-indicator">
+              <span class="live-dot-pulse"></span>
+              <span>En vivo • Actualizándose cada segundo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 3: Información del Estudiante (Centrado) -->
+      <section id="section-info" class="content-section">
+        <div class="info-center-container">
+          <div class="info-center-card">
+            <div class="info-avatar">YB</div>
+            <div class="info-title-badge">INTRODUCCIÓN A JAVASCRIPT</div>
+            <h1 class="info-name">Yosber Berroteran</h1>
+            <div class="info-section-tag">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Sección 284A1</span>
+            </div>
+            
+            <div class="info-footer-badges">
+              <span class="info-sub-pill">
+                <span class="pill-dot"></span>
+                Proyecto Web Activo
+              </span>
+              <span class="info-sub-pill">Estudiante</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Notificación Toast para avisar copiado -->
+  <div id="toast" class="toast">¡Código copiado al portapapeles!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
